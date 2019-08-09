@@ -190,15 +190,37 @@
 
     <!-- 自己的逻辑 -->
     <script>
-        /*
-                                                                                功能分析：
-                                                                                  - 1 用户退出登录
-                                                                                    - 获取方式 $('.user_center_link>a').eq(1)  或者自己设置类名操作也行
-                                                                                    - 请求接口，告诉服务端我退出了
-                                                                                      - 可以通过模态框设置一个确认操作
-                                                                                        - 退出成功，跳转到登录页面
-                                                                                        - 如果点击取消，不进行跳转
-                    header_bar.user_center_link 第二个 a
+        // 功能分析：
+        //   - 1 用户退出登录
+        //   - 获取方式 $('.user_center_link>a').eq(1)  或者自己设置类名操作也行
+        //   - 请求接口，告诉服务端我退出了
+        //     - 可以通过模态框设置一个确认操作
+        //       - 退出成功，跳转到登录页面
+        //       - 如果点击取消，不进行跳转
+        // header_bar. 第二个 
+        $('.header_bar .user_center_link a').eq(1).on('click', function() {
+            $('.modal-body').text('卡级吗不要走');
+            $('#myModal').modal();
+        })
+        $('.btn-leave').on('click', function() {
+                location.href = 'login.html';
+            })
+            // http://localhost:8000/admin/getuser
+            // nickname
+            // user_pic
+        $.get({
+            url: 'https://autumnfish.cn/big/admin/getuser',
+            success: function(res) {
+                // console.log(res);
+                $('.user_center_link>img').prop('src', res.data.user_pic);
+                $('.user_info>img').prop('src', res.data.user_pic);
+
+                $('.sider .user_info i').text(res.data.nickname);
+            }
+
+
+
+        })
     </script>
 
 </body>
