@@ -29,7 +29,7 @@
                 <i class="iconfont icon-key"></i>
                 <input type="text" class="input_txt" placeholder="邮箱/手机号" />
                 <input type="password" class="input_pass" placeholder="密码" />
-                <input type="submit" class="input_sub" data-toggle="modal" data-target="#myModal" value="登 录" />
+                <input type="submit" class="input_sub" data-target="#myModal" value="登 录" />
             </form>
         </div>
     </div>
@@ -73,7 +73,10 @@
     $('.input_sub').on('click', function(e) {
         e.preventDefault();
         if ($('.input_txt').val() === '' || $('.input_pass').val() === '') {
-            alert('账号密码不能为空');
+            $('.modal-body').text('账号密码不能为空');
+            $('#myModal').modal();
+
+
         } else {
             $.post({
                 url: 'http://localhost:8000/admin/login',
@@ -88,7 +91,10 @@
                     } else if (res.code === 200) {
                         $('.modal-body').text('登录成功');
                         $('#myModal').modal();
-                        location.href = 'index.html';
+                        $('.modal').on('click', function() {
+                            location.href = 'index.html'
+                        })
+
                     }
                 }
             });
