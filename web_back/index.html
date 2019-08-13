@@ -215,10 +215,11 @@
                 $('.user_center_link>img').prop('src', res.data.user_pic);
                 $('.user_info>img').prop('src', res.data.user_pic);
 
-                $('.sider .user_info i').text(res.data.nickname);
+                $('.sider .user_info i').html(
+                    res.data.nickname);
             }
 
-
+            // 
 
         })
     </script>

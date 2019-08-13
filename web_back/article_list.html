@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -12,36 +13,32 @@
     <script src="js/jquery-1.12.4.min.js"></script>
     <!-- 导入分页的插件 -->
     <script src="./js/jquery.twbsPagination.min.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="container-fluid">
-      <div class="common_title">
-        文章列表
-      </div>
-      <div class="container-fluid common_con">
-        <div class="row opt_btns">
-          <div class="col-xs-6">
-            <form class="form-inline">
-              <select id="selCategory" name="" class="form-control input-sm">
+        <div class="common_title">
+            文章列表
+        </div>
+        <div class="container-fluid common_con">
+            <div class="row opt_btns">
+                <div class="col-xs-6">
+                    <form class="form-inline">
+                        <select id="selCategory" name="" class="form-control input-sm">
                 <option value="">所有分类</option>
               </select>
-              <select id="selStatus" name="" class="form-control input-sm">
+                        <select id="selStatus" name="" class="form-control input-sm">
                 <option value="">所有状态</option>
                 <option value="草稿">草稿</option>
                 <option value="已发布">已发布</option>
               </select>
-              <button id="btnSearch" class="btn btn-default btn-sm">
+                        <button id="btnSearch" class="btn btn-default btn-sm">
                 筛选
               </button>
-            </form>
-          </div>
-          <div class="col-xs-6">
-            <a
-              href="article_release.html"
-              class="btn btn-success btn-sm pull-right"
-              id="release_btn"
-              >发表文章</a
+                    </form>
+                </div>
+                <div class="col-xs-6">
+                    <a href="article_release.html" class="btn btn-success btn-sm pull-right" id="release_btn">发表文章</a
             >
           </div>
         </div>
@@ -264,48 +261,48 @@
           <ul class="pagination pagination-sm">
             <li class="page-item first disabled">
               <a href="#" class="page-link">首页</a>
-            </li>
-            <li class="page-item prev disabled">
-              <a href="#" class="page-link">上一页</a>
-            </li>
-            <li class="page-item active">
-              <a href="#" class="page-link">1</a>
-            </li>
-            <li class="page-item"><a href="#" class="page-link">2</a></li>
-            <li class="page-item"><a href="#" class="page-link">3</a></li>
-            <li class="page-item"><a href="#" class="page-link">4</a></li>
-            <li class="page-item"><a href="#" class="page-link">5</a></li>
-            <li class="page-item"><a href="#" class="page-link">6</a></li>
-            <li class="page-item"><a href="#" class="page-link">7</a></li>
-            <li class="page-item next">
-              <a href="#" class="page-link">下一页</a>
-            </li>
-            <li class="page-item last">
-              <a href="#" class="page-link">尾页</a>
-            </li>
-          </ul>
+                    </li>
+                    <li class="page-item prev disabled">
+                        <a href="#" class="page-link">上一页</a>
+                    </li>
+                    <li class="page-item active">
+                        <a href="#" class="page-link">1</a>
+                    </li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">4</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item"><a href="#" class="page-link">6</a></li>
+                    <li class="page-item"><a href="#" class="page-link">7</a></li>
+                    <li class="page-item next">
+                        <a href="#" class="page-link">下一页</a>
+                    </li>
+                    <li class="page-item last">
+                        <a href="#" class="page-link">尾页</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <script>
-      // 设置左侧菜单
-      $('#release_btn').click(function() {
-        window.parent.setMenu(1, 1)
-      })
-    </script>
-    <!-- 模板引擎导入 -->
-    <script src="./js/template-web.js"></script>
-    <!-- 定义模板 选项 -->
-    <script type="text/html" id="cate">
-      {{each data v}}
-          <option value="{{v.id}}">{{v.name}}</option>
-      {{/each}}
-    </script>
-    <!-- 定义模板 文章 -->
-    <script type="text/html" id="article">
-      {{each data v}}
-          <tr>
+        <script>
+            // 设置左侧菜单
+            $('#release_btn').click(function() {
+                window.parent.setMenu(1, 1)
+            })
+        </script>
+        <!-- 模板引擎导入 -->
+        <script src="./js/template-web.js"></script>
+        <!-- 定义模板 选项 -->
+        <script type="text/html" id="cate">
+            {{each data v}}
+            <option value="{{v.id}}">{{v.name}}</option>
+            {{/each}}
+        </script>
+        <!-- 定义模板 文章 -->
+        <script type="text/html" id="article">
+            {{each data v}}
+            <tr>
 
                 <td>{{v.title}}</td>
                 <td>{{v.author}}</td>
@@ -321,10 +318,10 @@
                     <a href="javascript:deleteTr( 1005 );" class="btn btn-danger btn-xs">删除</a>
                 </td>
             </tr>
-        {{/each}}
-    </script>
-    <!-- 自己的js -->
-    <script>
+            {{/each}}
+        </script>
+        <!-- 自己的js -->
+        <!-- <script>
       /*
             文章类表-分类获取
                 请求地址：http://localhost:8000/admin/category_search
@@ -431,6 +428,34 @@
           getArticles()
         })
       })
-    </script>
-  </body>
+    </script> -->
+
+
+        <script>
+            // var currentPage = 1;
+            // getArtical();
+
+            //     }
+
+
+            //
+
+            $.get({
+                url: 'http://localhost:8000/admin/search',
+                data: {
+                    type: $('#sekcategory').val(),
+                    state: $('#selStatus').val(),
+                    perpage: 8,
+                    page: 27,
+                },
+                success: function(res) {
+
+                    console.log(res);
+
+
+                }
+            })
+        </script>
+</body>
+
 </html>
